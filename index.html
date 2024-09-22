@@ -10,55 +10,67 @@
 <style>
 
 :root {
-    --primary-color: #212121; /* Dark blue color */
-    --secondary-color: #03A9F4; /* Neon blue color */
-    --background-color: #1A1D23; /* Dark background color */
-    --text-color: #fff; /* White text color */
-    --card-bg: #2F343A; /* Dark card background color */
-    --header-height: 80px; /* Header height */
+    --primary-color: #212121; 
+    --secondary-color: #03A9F4; 
+    --background-color: #1A1D23;
+    --text-color: #fff; 
+    --card-bg: #2F343A; 
+    --header-height: 0px; 
   }
   
   body {
-    font-family: 'Montserrat', sans-serif; /* Modern font family */
+    font-family: 'Montserrat', sans-serif; 
     margin: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
     padding-top: var(--header-height);
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
+    background-image: url('background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
   }
+
+  main {
+    min-height: calc(100vh - var(--header-height)); /* Biarkan konten utama bisa berkembang */
+}
   
   header {
-    background-color: var(--primary-color); /* Dark blue header */
+    background-color: var(--primary-color);
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    height: var(--header-height);
-    padding: 0 20px;
+    height: 1%; 
+    padding: 20px; 
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
+    justify-content: center;
     align-items: center;
     position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Simple border */
-    box-shadow: none; /* Remove heavy shadow */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: none; 
 }
 
 header h1 {
-    font-size: 28px; /* Moderate font size */
+    font-size: 32px; 
     font-weight: 600;
     margin: 0;
-    color: var(--secondary-color); /* Neon blue color for highlight */
+    color: var(--secondary-color); 
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 15px; 
 }
 
 header nav ul {
-    list-style: none;
-    padding: 0;
     display: flex;
-    margin: 0;
+    justify-content: center; 
+    margin-top: 20px; 
 }
+
 
 header nav ul li {
     margin: 0 15px;
@@ -67,15 +79,21 @@ header nav ul li {
 header nav ul li a {
     color: var(--text-color);
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    padding: 8px 16px;
-    font-size: 16px;
-    transition: color 0.3s ease;
+    padding: 12px 20px; 
+    font-size: 18px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 12px; 
+    background-color: transparent; 
+    border: 2px solid var(--secondary-color);
 }
 
 header nav ul li a:hover {
-    color: var(--secondary-color); /* Simple hover effect */
-}
+    background-color: var(--secondary-color); 
+    color: #fff;
+    border: 2px solid transparent; }
+
 
 main {
     padding-top: 100px;
@@ -93,6 +111,16 @@ section.active {
     opacity: 1;
     transform: translateY(0);
     display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .blud-description,
@@ -101,8 +129,9 @@ table {
     background-color: var(--card-bg);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(250, 0, 0, 0.1);
     margin-bottom: 40px;
+    position: relative;
 }
 
 h2 {
@@ -122,23 +151,23 @@ h2 {
     background: linear-gradient(145deg, #1e2640, #1a2238);
     padding: 20px;
     border-radius: 10px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(46, 204, 113, 0.2);
 }
-
 .card h3 {
     color: var(--secondary-color);
     margin-top: 0;
 }
 
 table {
-    
     border-collapse: separate;
-    border-spacing: 0 10px;
+    border-spacing: 10px;
+    width: auto; 
+    margin: auto; 
 }
 
 th, td {
@@ -157,9 +186,16 @@ tr:hover {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: #16213e;
     color: var(--text-color);
-    padding: 20px }
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
 
     .contact-container {
         background-color: #212121;
@@ -168,11 +204,54 @@ footer {
     margin-bottom: 40px;
     }
 
+    .logo {
+    width: 40px; 
+    height: 40px; 
+    margin: 5px; 
+    float: left; 
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.data-layanan {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.data-layanan th, .data-layanan td {
+    border: 1px solid #444;
+    padding: 12px;
+    text-align: left;
+    color: #fff;
+}
+
+.data-layanan th {
+    background-color: var(--primary-color);
+    font-weight: 700;
+}
+
+.data-layanan tr:hover {
+    background-color: rgba(3, 169, 244, 0.1); /* Efek hover */
+}
+
+.data-layanan tbody tr:nth-child(odd) {
+    background-color: #2F343A; /* Warna alternatif untuk baris ganjil */
+}
+
+body, html {
+    overflow: auto; /* Mengizinkan scroll secara otomatis */
+    height: auto;   /* Pastikan tinggi tidak terkunci */
+}
 </style>
 
 <body>
     <header>
-        <h1>Badan Layanan Umum Daerah</h1>
+        <img src="BLUD.png" alt="BLUD Logo" class="logo">
+        <h1> Badan Layanan Umum Daerah</h1>
         <nav>
             <ul>
                 <li><a href="#" data-tab="beranda">Beranda</a></li>
@@ -210,11 +289,11 @@ footer {
             </div>
 
             <h2>Data Layanan Kami</h2>
-            <table align="center">
+            <table class="data-layanan">
                 <colgroup>
-                    <col style="width: 10%;">
+                    <col style="width: 5%;">  <!-- Nomor lebih kecil -->
                     <col style="width: 30%;">
-                    <col style="width: 60%;">
+                    <col style="width: 65%;">  <!-- Keterangan lebih besar -->
                 </colgroup>
                 <thead>
                     <tr>
@@ -227,27 +306,28 @@ footer {
                     <tr>
                         <td>1</td>
                         <td>Pelayanan Kesehatan</td>
-                        <td>Layanan kesehatan holistik dengan pendekatan preventif dan kuratif</td>
+                        <td>Layanan kesehatan holistik dengan pendekatan preventif dan kuratif.</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Pendidikan</td>
-                        <td>Program pendidikan inklusif dan berorientasi masa depan</td>
+                        <td>Program pendidikan inklusif dan berorientasi masa depan.</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Pengurusan KTP</td>
-                        <td>Sistem KTP elektronik dengan verifikasi biometrik canggih</td>
+                        <td>Sistem KTP elektronik dengan verifikasi biometrik canggih.</td>
                     </tr>
                 </tbody>
             </table>
+            
             
         </section>
 
         <section id="kontak">
             <div class="contact-container">
-                <h2 style="text-align: center;">Hubungi Kami</h2>
-                <table style="width: auto; margin: 0 auto; border-collapse: collapse;">
+                <h2>Hubungi Kami</h2>
+                <table>
                     <tbody>
                         <tr>
                             <td><strong>Email:</strong></td>
@@ -282,31 +362,33 @@ footer {
 
     <script>
 
-        // script.js
-    document.addEventListener('DOMContentLoaded', () => {
-        const navLinks = document.querySelectorAll('nav ul li a');
-        const sections = document.querySelectorAll('main section');
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('main section');
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tabId = link.getAttribute('data-tab');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tabId = link.getAttribute('data-tab');
 
-                sections.forEach(section => {
-                    section.classList.remove('active');
-                    section.style.display = 'none';
-                });
-
-                setTimeout(() => {
-                    const activeSection = document.getElementById(tabId);
-                    activeSection.style.display = 'block';
-                    setTimeout(() => {
-                        activeSection.classList.add('active');
-                    }, 20);
-                }, 100);
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.opacity = '0';
+                section.style.visibility = 'hidden'; 
             });
+
+            setTimeout(() => {
+                const activeSection = document.getElementById(tabId);
+                activeSection.style.visibility = 'visible'; 
+                setTimeout(() => {
+                    activeSection.style.opacity = '1';
+                    activeSection.classList.add('active');
+                }, 20);
+            }, 100);
         });
     });
+});
+
 </script>
     </script>
 </body>
